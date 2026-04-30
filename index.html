@@ -203,11 +203,27 @@
     .foot-prompt .pu { color:var(--green); font-weight:700; }
 
     @media (max-width: 600px) {
-        .ascii-art {
-        font-size: 6px;          /* non 4px, altrimenti si deforma */
-        line-height: 1.15;
+        nav {
+          padding: 0 1rem;
         }
-    }
+        .nav-links {
+          gap: 0.8rem;
+          flex-wrap: wrap;          /* permette ai link di andare a capo */
+          justify-content: flex-end;
+        }
+        .nav-links a {
+          font-size: 10px;          /* riduci leggermente la dimensione */
+          white-space: nowrap;      /* evita che ogni parola si spacchi */
+        }
+        section {
+          padding: 3rem 1rem;
+        }
+        .ascii-art {
+          font-size: 6px;           /* meglio di 4px per leggibilità */
+          line-height: 1.15;
+          overflow-x: auto;
+         }
+      }
   </style>
 </head>
 <body>
