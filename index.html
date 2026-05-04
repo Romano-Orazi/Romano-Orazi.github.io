@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Romano Orazi — Full Stack Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Romano Orazi — Automations · Java · Freelance</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,7 +45,7 @@
     @keyframes flicker { 0%,100%{opacity:1} 92%{opacity:1} 93%{opacity:.96} 94%{opacity:1} 96%{opacity:.98} }
     body { animation: flicker 8s infinite; }
 
-    /* ─── NAV ─── */
+    /* ─── NAV (FIX MOBILE) ─── */
     nav {
       position: fixed; top:0; left:0; right:0; z-index:100;
       background: rgba(10,10,10,0.95);
@@ -104,10 +104,14 @@
     }
     .ascii-art {
       font-size: 7.5px;
-      line-height: 1.2;          /* più stabile */
+      line-height: 1.2;
       white-space: pre;
       overflow-x: auto;
       -webkit-text-size-adjust: none;
+      color: var(--green-dim);
+      margin-bottom: 2rem;
+      opacity: 0.75;
+      letter-spacing: 0.03em;
     }
     .hero-title { font-size:clamp(28px,5vw,48px); font-weight:700; color:var(--green); line-height:1.15; margin-bottom:.5rem; }
     .hero-subtitle { font-size:clamp(14px,2vw,18px); color:var(--muted); margin-bottom:2rem; }
@@ -145,14 +149,15 @@
     #about p { color:var(--text); line-height:1.9; max-width:640px; }
     #about p+p { margin-top:1rem; }
 
-    /* ─── SKILLS ─── */
+    /* ─── LEARNING PATH (ex SKILLS) ─── */
     .skills-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1.5rem; }
     .skill-group-title {
       font-size:11px; letter-spacing:.15em; color:var(--green); text-transform:uppercase;
       margin-bottom:.8rem; padding-bottom:.4rem; border-bottom:1px solid var(--border);
     }
     .skill-tag { display:inline-block; font-size:12px; color:var(--text); margin:.25rem .25rem .25rem 0; line-height:1.5; }
-    .skill-tag::before { content:'> '; color:var(--green-dim); }
+    .skill-tag::before { content:'📖 '; color:var(--green-dim); }
+    .learning-note { font-size:11px; color:var(--muted); margin-top:1rem; font-style:italic; }
 
     /* ─── EXPERIENCE ─── */
     .exp-list { display:flex; flex-direction:column; gap:2.5rem; }
@@ -178,13 +183,28 @@
     .project-links a { font-size:11px; color:var(--muted); text-decoration:none; letter-spacing:.08em; transition:color .2s; }
     .project-links a:hover { color:var(--green); }
 
-    /* ─── CONTACT ─── */
+    /* ─── CONTACT + CALENDLY ─── */
     .contact-box { border:1px solid var(--border); padding:2rem; background:var(--bg2); max-width:560px; }
     .contact-line { display:flex; align-items:center; gap:1rem; padding:.7rem 0; border-bottom:1px solid var(--border); }
     .contact-line:last-child { border-bottom:none; }
     .contact-key { color:var(--muted); font-size:11px; letter-spacing:.12em; text-transform:uppercase; min-width:80px; }
     .contact-val a { color:var(--green); text-decoration:none; font-size:13px; transition:opacity .2s; }
     .contact-val a:hover { opacity:.7; }
+    .calendly-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: var(--green);
+      color: var(--bg);
+      padding: 0.7rem 1.5rem;
+      font-size: 13px;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .calendly-btn:hover { background: var(--green-dim); color: #000; }
 
     /* ─── DIVIDER ─── */
     .divider {
@@ -202,28 +222,28 @@
     .foot-prompt { display:flex; justify-content:center; align-items:center; gap:.5rem; margin-bottom:.5rem; }
     .foot-prompt .pu { color:var(--green); font-weight:700; }
 
+    /* ─── RESPONSIVE (MOBILE FIX) ─── */
     @media (max-width: 600px) {
-        nav {
-          padding: 0 1rem;
-        }
-        .nav-links {
-          gap: 0.8rem;
-          flex-wrap: wrap;          /* permette ai link di andare a capo */
-          justify-content: flex-end;
-        }
-        .nav-links a {
-          font-size: 10px;          /* riduci leggermente la dimensione */
-          white-space: nowrap;      /* evita che ogni parola si spacchi */
-        }
-        section {
-          padding: 3rem 1rem;
-        }
-        .ascii-art {
-          font-size: 6px;           /* meglio di 4px per leggibilità */
-          line-height: 1.15;
-          overflow-x: auto;
-         }
+      nav { padding: 0 1rem; }
+      .nav-links {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
       }
+      .nav-links a {
+        font-size: 10px;
+        white-space: nowrap;
+      }
+      section { padding: 3rem 1rem; }
+      .ascii-art {
+        font-size: 7px;
+        line-height: 1.15;
+        overflow-x: auto;
+      }
+      .hero-desc { font-size: 12px; }
+      .contact-line { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+      .contact-key { min-width: auto; }
+    }
   </style>
 </head>
 <body>
@@ -232,7 +252,7 @@
   <div class="nav-brand"><span>~/</span>romano-orazi</div>
   <div class="nav-links">
     <a href="#about">about</a>
-    <a href="#skills">skills</a>
+    <a href="#skills">learning</a>
     <a href="#experience">exp</a>
     <a href="#projects">projects</a>
     <a href="#contact">contact</a>
@@ -247,7 +267,7 @@
     <div class="term-prompt-line" style="margin-bottom:2rem;">
       <span class="pu">romano@portfolio</span>
       <span style="color:var(--muted)">:~$</span>
-      <span style="color:var(--text);margin-left:.3rem">./hello-world.sh</span>
+      <span style="color:var(--text);margin-left:.3rem">./automate.sh</span>
     </div>
   </div>
 
@@ -260,10 +280,10 @@
  ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝</pre>
 
   <div class="hero-title hi">Romano Orazi<span class="cursor"></span></div>
-  <div class="hero-subtitle hi">// <span>Freelance Full Stack Developer</span> — Rome, Italy</div>
+  <div class="hero-subtitle hi">// <span>Freelance Developer & Java Instructor</span> — Rome, Italy</div>
   <p class="hero-desc hi">
-    I build robust, scalable and well-crafted web applications.<br/>
-    Passionate about clean architecture, performance and developer experience.
+    I turn complex logistics into simple automations.<br/>
+    Java backend · Apps Script · From sidecar tours to code perfection.
   </p>
   <div class="cta-row hi">
     <a class="btn" href="#projects">[ view projects ]</a>
@@ -273,117 +293,97 @@
 
 <div class="divider">// ──────────────────────────────────────── //</div>
 
-<!-- ─── ABOUT ─── -->
+<!-- ─── ABOUT (REAL) ─── -->
 <section id="about">
   <div class="term-gate" data-cmd="cat about.txt">
     <div class="term-intro"></div>
     <div class="term-body">
       <div class="section-header">// about me</div>
       <h2>Who I Am</h2>
-      <p>I'm Romano Orazi, a <strong>Freelance Full Stack Developer</strong> based in Rome. I design and build web applications end-to-end — from backend systems to user interfaces — always keeping code quality and the end-user experience at the forefront.</p>
-      <p>I believe software should solve real problems. I work best in challenging contexts, with motivated teams, tackling problems from scratch — or improving existing systems until they truly work well.</p>
-      <p>When I'm not writing code, I'm probably reading about software architecture, exploring new frameworks, or contributing to open source projects.</p>
+      <p>I’m Romano Orazi, a <strong>freelance developer</strong> based in Rome with 7 years of experience. I started with Java (object-oriented) and later discovered the power of Google Apps Script to automate boring, bureaucratic processes. I love solving real logistic problems — from driver shift management to attendance tracking.</p>
+      <p>I work as a <strong>Java instructor</strong> (Formatemp courses) and as a freelance developer. I don't stop until the result is as close to perfection as possible. When I'm not coding, I drive sidecar tours around Rome, fix motorcycles, or ride them.</p>
+      <p>My current mission: filling the gaps in modern full‑stack development (React, Node.js, Linux) while staying true to my automation roots.</p>
     </div>
   </div>
 </section>
 
 <div class="divider">// ──────────────────────────────────────── //</div>
 
-<!-- ─── SKILLS ─── -->
+<!-- ─── LEARNING PATH (ex SKILLS) ─── -->
 <section id="skills">
-  <div class="term-gate" data-cmd="ls ./skills/ --all">
+  <div class="term-gate" data-cmd="cat learning_path.md">
     <div class="term-intro"></div>
     <div class="term-body">
-      <div class="section-header">// skills &amp; tools</div>
-      <h2>Tech Stack</h2>
+      <div class="section-header">// learning path</div>
+      <h2>What I'm studying now</h2>
       <div class="skills-grid">
         <div class="skill-group">
-          <div class="skill-group-title">Frontend</div>
-          <div class="skill-tag">React</div>
-          <div class="skill-tag">TypeScript</div>
-          <div class="skill-tag">Next.js</div>
-          <div class="skill-tag">HTML / CSS</div>
-          <div class="skill-tag">Tailwind CSS</div>
+          <div class="skill-group-title">Frontend (in progress)</div>
+          <div class="skill-tag">HTML5 / CSS3</div>
+          <div class="skill-tag">JavaScript (ES6)</div>
+          <div class="skill-tag">React (next 6 months)</div>
         </div>
         <div class="skill-group">
-          <div class="skill-group-title">Backend</div>
-          <div class="skill-tag">Node.js</div>
-          <div class="skill-tag">Python</div>
-          <div class="skill-tag">REST API</div>
-          <div class="skill-tag">GraphQL</div>
-          <div class="skill-tag">Express</div>
-          <div class="skill-tag">Java</div>
+          <div class="skill-group-title">Backend (consolidation)</div>
+          <div class="skill-tag">Java (Spring Boot)</div>
+          <div class="skill-tag">Maven + Hibernate</div>
+          <div class="skill-tag">REST API design</div>
+          <div class="skill-tag">Google Apps Script</div>
         </div>
         <div class="skill-group">
-          <div class="skill-group-title">Database</div>
-          <div class="skill-tag">PostgreSQL</div>
-          <div class="skill-tag">MongoDB</div>
-          <div class="skill-tag">Redis</div>
-          <div class="skill-tag">Prisma ORM</div>
+          <div class="skill-group-title">Database (growing)</div>
+          <div class="skill-tag">MySQL (solid)</div>
+          <div class="skill-tag">PostgreSQL (learning)</div>
         </div>
         <div class="skill-group">
-          <div class="skill-group-title">DevOps &amp; Tools</div>
-          <div class="skill-tag">Docker</div>
+          <div class="skill-group-title">DevOps & Tools</div>
           <div class="skill-tag">Git / GitHub</div>
-          <div class="skill-tag">CI/CD</div>
-          <div class="skill-tag">Linux</div>
-          <div class="skill-tag">Vercel / Railway</div>
+          <div class="skill-tag">GitHub Actions (CI)</div>
+          <div class="skill-tag">Linux (self‑hosting)</div>
+          <div class="skill-tag">Playwright (automation)</div>
         </div>
       </div>
+      <div class="learning-note">“I don’t pretend to know everything — but I‘m committed to learn it well.”</div>
     </div>
   </div>
 </section>
 
 <div class="divider">// ──────────────────────────────────────── //</div>
 
-<!-- ─── EXPERIENCE ─── -->
+<!-- ─── EXPERIENCE (REAL) ─── -->
 <section id="experience">
-  <div class="term-gate" data-cmd="cat experience.json | jq .">
+  <div class="term-gate" data-cmd="cat experience.json">
     <div class="term-intro"></div>
     <div class="term-body">
       <div class="section-header">// experience</div>
-      <h2>Work Experience</h2>
+      <h2>Work & Teaching</h2>
       <div class="exp-list">
         <div class="exp-item">
           <div class="exp-header">
             <div>
-              <div class="exp-role">Full Stack Developer</div>
-              <div class="exp-company">// Current Company S.r.l.</div>
+              <div class="exp-role">Freelance Developer</div>
+              <div class="exp-company">// Self-employed · Rome</div>
+            </div>
+            <div class="exp-date">2019 — present</div>
+          </div>
+          <p class="exp-desc">Developing custom automation solutions for small businesses: shift management web app (Google Sheets + Apps Script), attendance screenshot tool (Python + Playwright), and other logistic scripts. Focus on reducing manual work and human error.</p>
+          <div class="exp-tags">
+            <span class="tag">Java</span><span class="tag">Apps Script</span>
+            <span class="tag">Python</span><span class="tag">Playwright</span>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Java Instructor (Base)</div>
+              <div class="exp-company">// Formatemp · APL courses</div>
             </div>
             <div class="exp-date">2022 — present</div>
           </div>
-          <p class="exp-desc">Development and maintenance of enterprise web applications. Responsible for frontend architecture and REST API design. Achieved a 50% reduction in load time through targeted optimizations and code splitting.</p>
+          <p class="exp-desc">Teaching object-oriented programming with Java to adult students. Preparing lesson plans, evaluating assignments, and helping students build their first projects. Fixed‑term contracts for free training courses.</p>
           <div class="exp-tags">
-            <span class="tag">React</span><span class="tag">Node.js</span>
-            <span class="tag">PostgreSQL</span><span class="tag">Docker</span>
-          </div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Frontend Developer</div>
-              <div class="exp-company">// Web Agency XYZ</div>
-            </div>
-            <div class="exp-date">2020 — 2022</div>
-          </div>
-          <p class="exp-desc">Built web interfaces for clients in e-commerce and media. Implemented design systems from scratch, collaborated with UX/UI teams, and integrated headless CMS solutions.</p>
-          <div class="exp-tags">
-            <span class="tag">TypeScript</span><span class="tag">Next.js</span>
-            <span class="tag">Sanity CMS</span><span class="tag">Figma</span>
-          </div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Junior Developer</div>
-              <div class="exp-company">// Innovative Startup S.r.l.</div>
-            </div>
-            <div class="exp-date">2018 — 2020</div>
-          </div>
-          <p class="exp-desc">First professional role in a fast-paced startup environment. Contributed to a B2B SaaS product from prototyping through production releases. Introduced automated testing and API documentation.</p>
-          <div class="exp-tags">
-            <span class="tag">JavaScript</span><span class="tag">Vue.js</span>
-            <span class="tag">Python</span><span class="tag">MySQL</span>
+            <span class="tag">Java (SE)</span><span class="tag">OOP</span>
+            <span class="tag">Maven</span><span class="tag">Eclipse</span>
           </div>
         </div>
       </div>
@@ -393,45 +393,44 @@
 
 <div class="divider">// ──────────────────────────────────────── //</div>
 
-<!-- ─── PROJECTS ─── -->
+<!-- ─── PROJECTS (REAL with FAKE data - Option C) ─── -->
 <section id="projects">
-  <div class="term-gate" data-cmd="ls ./projects/ --details">
+  <div class="term-gate" data-cmd="ls -la projects/">
     <div class="term-intro"></div>
     <div class="term-body">
       <div class="section-header">// projects</div>
-      <h2>Selected Projects</h2>
+      <h2>Selected Work (dummy data, real logic)</h2>
       <div class="projects-grid">
         <div class="project-card">
-          <div class="project-name">devnotes</div>
-          <p class="project-desc">App for organizing developer notes with Markdown support, tagging and full-text search. Node.js backend, React frontend, PostgreSQL storage.</p>
+          <div class="project-name">shift-manager</div>
+          <p class="project-desc">Web app (Apps Script + Sheets) to manage driver shifts, calculate salaries, and send monthly reports. Originally built for a sidecar tour company. This version uses anonymized demo data.</p>
           <div class="exp-tags" style="margin-bottom:1rem;">
-            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span>
+            <span class="tag">Apps Script</span><span class="tag">Sheets API</span><span class="tag">HTML Service</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/romanoorazi" target="_blank">[ github ]</a>
-            <a href="#" target="_blank">[ live demo ]</a>
+            <a href="#" target="_blank">[ demo on request ]</a>
+            <a href="#" target="_blank">[ code (private) ]</a>
           </div>
         </div>
         <div class="project-card">
-          <div class="project-name">api-forge</div>
-          <p class="project-desc">CLI tool to generate REST API scaffolding from a YAML schema. Supports Express, Fastify and OpenAPI output. Published on npm.</p>
+          <div class="project-name">attendance-screener</div>
+          <p class="project-desc">Python script using Playwright to automatically take attendance screenshots from a training portal, crop UI clutter, add timestamps, and merge into a single PDF. Saves hours of manual bureaucracy.</p>
           <div class="exp-tags" style="margin-bottom:1rem;">
-            <span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">CLI</span>
+            <span class="tag">Python</span><span class="tag">Playwright</span><span class="tag">Pillow</span><span class="tag">img2pdf</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/romanoorazi" target="_blank">[ github ]</a>
-            <a href="#" target="_blank">[ npm ]</a>
+            <a href="#" target="_blank">[ demo on request ]</a>
+            <a href="#" target="_blank">[ code (private) ]</a>
           </div>
         </div>
         <div class="project-card">
-          <div class="project-name">pixel-dashboard</div>
-          <p class="project-desc">Real-time analytics dashboard for monitoring product metrics. Interactive charts, advanced filters, CSV export. Stack: Next.js + Redis + WebSocket.</p>
+          <div class="project-name">java‑exercises (teaching)</div>
+          <p class="project-desc">Collection of Java exercises and small projects used in my courses: bank account, library system, basic algorithms. Great for beginners.</p>
           <div class="exp-tags" style="margin-bottom:1rem;">
-            <span class="tag">Next.js</span><span class="tag">Redis</span><span class="tag">WebSocket</span>
+            <span class="tag">Java 17</span><span class="tag">JUnit</span><span class="tag">Maven</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/romanoorazi" target="_blank">[ github ]</a>
-            <a href="#" target="_blank">[ live demo ]</a>
+            <a href="#" target="_blank">[ github (work in progress) ]</a>
           </div>
         </div>
       </div>
@@ -441,14 +440,14 @@
 
 <div class="divider">// ──────────────────────────────────────── //</div>
 
-<!-- ─── CONTACT ─── -->
+<!-- ─── CONTACT + CALENDLY ─── -->
 <section id="contact">
   <div class="term-gate" data-cmd="cat contact.txt">
     <div class="term-intro"></div>
     <div class="term-body">
       <div class="section-header">// contact</div>
       <h2>Let's Talk</h2>
-      <p style="color:var(--text);margin-bottom:2rem;max-width:480px;">I'm open to freelance collaborations, full-time positions, or just a good technical conversation. Reach out!</p>
+      <p style="color:var(--text);margin-bottom:2rem;max-width:480px;">Need an automation? A Java course? Or just want to chat about code and sidecars? Reach out.</p>
       <div class="contact-box">
         <div class="contact-line">
           <span class="contact-key">email</span>
@@ -462,7 +461,12 @@
           <span class="contact-key">linkedin</span>
           <span class="contact-val"><a href="https://www.linkedin.com/in/romano-orazi-java-developer" target="_blank">romano-orazi-java-developer</a></span>
         </div>
+        <div class="contact-line">
+          <span class="contact-key">booking</span>
+          <span class="contact-val"><a href="https://calendly.com/romano-orazi" target="_blank">calendly.com/romano-orazi</a></span>
+        </div>
       </div>
+      <a href="https://calendly.com/romano-orazi" target="_blank" class="calendly-btn">📅 Book a free consultation →</a>
     </div>
   </div>
 </section>
@@ -475,21 +479,15 @@
     <span style="color:var(--muted)">:~$</span>
     <span style="color:var(--text);margin-left:.3rem">exit 0</span>
   </div>
-  © 2026 Romano Orazi — Freelance Full Stack Developer — Built with HTML, CSS &amp; ❤️ — Hosted on GitHub Pages
+  © 2026 Romano Orazi — Freelance Developer & Java Instructor — Built with HTML/CSS — Hosted on GitHub Pages
 </footer>
 
 <script>
-// ─── TERMINAL TYPING ENGINE ────────────────────────────────────────────
-// Each .term-gate, when it enters the viewport:
-//   1. Types the prompt command char by char (typewriter effect)
-//   2. Blinks the cursor for a moment (simulating "Enter" pressed)
-//   3. Reveals .term-body with fade + slide
-// Each gate animates only once.
-
+// ─── TERMINAL TYPING ENGINE (same as before) ───
 const USER    = 'romano@portfolio';
 const SYMBOL  = ':~$';
-const CHAR_MS = 40;    // typing speed (ms per character)
-const PAUSE   = 350;   // pause after finishing typing
+const CHAR_MS = 40;
+const PAUSE   = 350;
 
 function mkPrompt(typed, cursorOn) {
   return `<div class="term-prompt-line">
@@ -518,12 +516,10 @@ function runGate(gate) {
       i++;
       setTimeout(tick, CHAR_MS);
     } else {
-      // typing done — blinking cursor
       intro.innerHTML = mkPrompt(cmd, true);
       intro.querySelector('.term-cursor').classList.add('blink');
 
       setTimeout(() => {
-        // remove cursor, reveal content
         intro.innerHTML = mkPrompt(cmd, false);
         body.classList.add('revealed');
       }, PAUSE);
@@ -531,7 +527,6 @@ function runGate(gate) {
   })();
 }
 
-// Observe each gate with IntersectionObserver
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) runGate(e.target); });
 }, { threshold: 0.18 });
